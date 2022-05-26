@@ -29,7 +29,7 @@ function Footer() {
           <Box style={{ backgroundColor: "#1b133499", height: "60px" }}>
             <Box paddingTop={1}>
               <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >
-                © 2020 Copyright: Amanda Lobo</Typography>
+                © 2022 Copyright: Amanda Lobo</Typography>
             </Box>
             <Box>
               <a target="_blank" href="https://brasil.generation.org">
