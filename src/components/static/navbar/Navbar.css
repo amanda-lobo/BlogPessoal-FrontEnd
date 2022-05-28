@@ -8,3 +8,14 @@
     font-size: 50px!important;
     font-style: inherit!important;
 }
+
+.text-decoration
+{
+    text-decoration: none!important;
+    color: #f5f5f5;
+}
+
+.cursor
+{
+    cursor: pointer!important;
+}

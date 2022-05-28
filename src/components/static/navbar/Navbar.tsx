@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import './Navbar.css'
+
 
 
 function Navbar() {
@@ -8,39 +10,34 @@ function Navbar() {
     <>
       <AppBar position="static">
         <Toolbar className='navbar' variant="dense">
-          <Box style={{ cursor: "pointer" }} >
+          <Box className='cursor'>
             <Typography variant="h5" color="inherit">
-              Lobinea
+              Lobinha
             </Typography>
           </Box>
 
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{ cursor: "pointer" }}>
-              <Typography variant="h6" color="inherit">
-                home
-              </Typography>
-            </Box>
-            <Box mx={1} style={{ cursor: "pointer" }}>
+            <Box mx={1} className='cursor'>
               <Typography variant="h6" color="inherit">
                 postagens
               </Typography>
             </Box>
-            <Box mx={1} style={{ cursor: "pointer" }}>
+            <Box mx={1} className='cursor'>
               <Typography variant="h6" color="inherit">
                 temas
               </Typography>
             </Box>
-            <Box mx={1} style={{ cursor: "pointer" }}>
+            <Box mx={1} className='cursor'>
               <Typography variant="h6" color="inherit">
                 cadastrar tema
               </Typography>
             </Box>
-            <Box mx={1} style={{ cursor: "pointer" }}>
-              <Typography variant="h6" color="inherit">
-                logout
-              </Typography>
-            </Box>
-          </Box>
+            <Link to='/login' className='text-decoration'>
+              <Box mx={1} className='cursor'>
+                <Typography variant="h6" color="inherit">
+                  logout
+                </Typography>
+              </Box>
+            </Link>
 
         </Toolbar>
       </AppBar>
