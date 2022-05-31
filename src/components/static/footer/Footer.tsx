@@ -8,12 +8,12 @@ import './Footer.css';
 function Footer() {
   return (
     <>
-      <Grid container direction="row" justifyContent="center" alignItems="center">
+      <Grid className='footer-background' container direction="row" justifyContent="center" alignItems="center">
         <Grid alignItems="center" item xs={12}>
-          <Box className='footer-background'>
+          <Box>
             <Box className='txt' paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-              <Typography align="center" gutterBottom>
-                Siga-nos nas redes sociais </Typography>
+              {/* <Typography align="center" gutterBottom>
+                Siga-nos nas redes sociais </Typography> */}
             </Box>
             <Box display="flex" alignItems="center" justifyContent="center" className='icons'>
             <a href="https://www.instagram.com/_amandalobo/" target="_blank">
@@ -27,15 +27,10 @@ function Footer() {
               </a>
             </Box>
           </Box>
-          <Box className='copy'style={{ backgroundColor: "#1b133499", height: "60px" }}>
+          <Box className='txt'>
             <Box paddingTop={1}>
               <Typography variant="subtitle2" align="center" gutterBottom>
                 © 2022 Copyright: Amanda Lobo</Typography>
-            </Box>
-            <Box>
-              <a target="_blank" href="https://brasil.generation.org">
-                <Typography variant="subtitle2" gutterBottom align="center">brasil.generation.org</Typography>
-              </a>
             </Box>
           </Box>
         </Grid>

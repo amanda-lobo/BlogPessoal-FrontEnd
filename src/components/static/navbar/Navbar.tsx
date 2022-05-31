@@ -10,11 +10,14 @@ function Navbar() {
     <>
       <AppBar position="static">
         <Toolbar className='navbar' variant="dense">
+
+        <Link to='/home' className='text-decoration'>
           <Box className='cursor'>
             <Typography variant="h5" color="inherit">
               Lobinha
             </Typography>
           </Box>
+        </Link>
 
             <Box mx={1} className='cursor'>
               <Typography variant="h6" color="inherit">

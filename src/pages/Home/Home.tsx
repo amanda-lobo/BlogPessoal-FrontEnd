@@ -8,8 +8,8 @@ function Home() {
       <Grid className='background' container direction="row" justifyContent="center" alignItems="center">
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20} className='txt-home'>
-            <Typography variant="h3" gutterBottom component="h3" align="center">Seja bem vinde!</Typography>
-            <Typography variant="h5" gutterBottom component="h5" align="center">expresse aqui os seus pensamentos e opiniões!</Typography>
+            <Typography variant="h3" gutterBottom component="h3" align="center">Hello World!</Typography>
+            <Typography variant="h5" gutterBottom component="h5" align="center">Seja bem vinda a nossa comunidade DevGirls</Typography>
           </Box>
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}>
@@ -18,7 +18,7 @@ function Home() {
           </Box>
         </Grid>
         <Grid item xs={6} >
-          <img className='img-home' src="https://i.imgur.com/fpYh0br.png" alt="imagem de um lobo"/>
+          <img className='img-home' src="https://i.imgur.com/OjoRVqr.png" alt="Logo Girl Power"/>
         </Grid>
         {/* <Grid xs={12}>
         </Grid> */}
