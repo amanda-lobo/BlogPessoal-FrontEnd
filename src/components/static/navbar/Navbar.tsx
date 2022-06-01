@@ -14,7 +14,7 @@ function Navbar() {
         <Link to='/home' className='text-decoration'>
           <Box className='cursor'>
             <Typography variant="h5" color="inherit">
-              Lobinha
+              DevGirls
             </Typography>
           </Box>
         </Link>
