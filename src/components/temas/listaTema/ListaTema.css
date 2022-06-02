@@ -1,18 +1,18 @@
-.background
+.text-decoration
 {
-    background-color: #F2EEFA;
+    text-decoration: none;
 }
 
-.txt-home
+.background2
 {
-    font-weight: bold !important;
+    background-color: #f5f5f5;
 }
 
-.btn-verPost
+.btn-tema
 {
     background-color: #8470A999!important;
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 35px;
     border:none;
     -webkit-box-shadow: 0px 0px 4px -1px #000000; 
     box-shadow: 0px 0px 4px -1px #000000;
@@ -21,27 +21,16 @@
     border-radius: 5px;
     transition-duration: 500ms!important;
     outline: none;
-    margin: 5px!important;
 }
 
-.btn-verPost:hover
+.btn-tema:hover
 {
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 35px;
     background-color: #F2EEFA!important;
     border-color: #8470A9!important;
     -webkit-box-shadow: 8px 8px 8px -1px #8470A9; 
     box-shadow: 8px 8px 8px -1px #8470A9;
     transition-duration: 500ms!important;
     outline: none;
-    margin: 5px!important;   
-}
-
-.img-home
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 380px;
-    height: 540px;
 }
