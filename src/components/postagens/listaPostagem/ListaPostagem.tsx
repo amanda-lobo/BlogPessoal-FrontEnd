@@ -1,11 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './ListaPostagem.css'
+import { busca } from '../../../services/Service'
+import Postagem from '../../../models/Postagem'
+import useLocalStorage from 'react-use-localstorage'
 
 function ListaPostagem() {
+
+  const [posts, setPosts] = useState<Postagem[]>([])
+  const [token, setToken] = useLocalStorage('token');
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado")
+      navigate("/login")
+
+    }
+  }, [token])
+
+  async function getPost() {
+    await busca("/postagens", setPosts, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  useEffect(() => {
+
+    getPost()
+
+  }, [posts.length])
   return (
     <>
+    {
+    posts.map(post => (
       <Box m={2} className='background'>
         <Card variant="outlined">
           <CardContent className='card1'>
@@ -42,6 +73,8 @@ function ListaPostagem() {
           </CardActions>
         </Card>
       </Box>
+      ))
+    }
     </>
   )
 }

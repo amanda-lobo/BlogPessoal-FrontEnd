@@ -1,11 +1,41 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import useLocalStorage from 'react-use-localstorage'
+import Tema from '../../../models/Tema'
+import { busca } from '../../../services/Service'
 import './ListaTema.css'
 
 function ListaTema() {
+    const [temas, setTemas] = useState<Tema[]>([])
+    const [token, setToken] = useLocalStorage('token');
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (token == '') {
+            alert("Você precisa estar logado")
+            navigate("/login")
+        }
+    }, [token])
+
+
+    async function getTema() {
+        await busca("/temas", setTemas, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+
+    useEffect(() => {
+        getTema()
+    }, [temas.length])
+
     return (
         <>
+        {
+            temas.map(tema =>(
             <Box m={2} className='background2' >
                 <Card variant="outlined">
                     <CardContent>
@@ -13,29 +43,31 @@ function ListaTema() {
                             Tema
                         </Typography>
                         <Typography variant="h5" component="h2">
-                            Minha descrição
+                        {tema.descricao}
                         </Typography>
                     </CardContent>
                     <CardActions>
                         <Box display="flex" justifyContent="center" mb={1.5} >
-                            <Link to="" className="text-decoration">
+                            <Link to={`/formularioTema/${tema.id}`} className="text-decoration">
                                 <Box mx={1}>
                                     <Button className='btn-tema' variant="contained" size='small'>
                                         atualizar
                                     </Button>
                                 </Box>
                             </Link>
-                                <Link to="" className="text-decoration">
-                                    <Box mx={1}>
-                                        <Button className='btn-tema' variant="contained" size='small'>
-                                            deletar
-                                        </Button>
-                                    </Box>
+                            <Link to={`/deletartema/${tema.id}`} className="text-decoration">
+                                <Box mx={1}>
+                                    <Button className='btn-tema' variant="contained" size='small'>
+                                        deletar
+                                    </Button>
+                                </Box>
                             </Link>
                         </Box>
                     </CardActions>
                 </Card>
             </Box>
+            ))
+        }
         </>
     )
 }
