@@ -3,12 +3,16 @@ import { Typography, Box, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import { useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../components/store/tokens/tokensReducer';
 
 function Home() {
   let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
     
     useEffect(() => {
       if (token == "") {
@@ -29,7 +33,11 @@ function Home() {
             <Box marginRight={1}>
               <ModalPostagem />
             </Box>
-            <Button className='btn-verPost'>Ver Postagens</Button>
+
+            <Link to="/posts" className='text-decoration'>
+              <Button className='btn-verPost'>Ver Postagens</Button>
+            </Link>
+
           </Box>
         </Grid>
         <Grid item xs={6} >

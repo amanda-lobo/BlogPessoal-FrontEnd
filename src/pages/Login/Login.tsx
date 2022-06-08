@@ -6,11 +6,14 @@ import UserLogin from '../../models/UserLogin';
 import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../components/store/tokens/actions';
 
 function Login() {
 
+    const dispatch = useDispatch();
     let navigate = useNavigate(); //antigo history = useHistory
-    const [token, setToken] = useLocalStorage('token');
+    const [token, setToken] = useState('');
 
     const [UserLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -31,6 +34,7 @@ function Login() {
         useEffect(()=>{
             if (token != '')
             {
+                dispatch(addToken(token))
                 navigate('/home')
             }
         }, [token])
