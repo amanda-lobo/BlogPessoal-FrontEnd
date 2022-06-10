@@ -3,35 +3,35 @@
     text-decoration: none;
 }
 
-.btn-postagem
+.card1
 {
-    background-color: #8470A999!important;
+    background-color: #f5f5f5;
+}
+
+.btn-postagem-tema{
+    background-color: #8470A9!important;
     color: #f5f5f5!important;
     width: 100px;
-    height: 35px;
+    height: 40px;
     border:none;
-    -webkit-box-shadow: 0px 0px 4px -1px #000000; 
-    box-shadow: 0px 0px 4px -1px #000000;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     transition-duration: 500ms!important;
     outline: none;
+    margin: 5px!important;
 }
 
-.btn-postagem:hover
+.btn-postagem-tema:hover
 {
     width: 100px;
-    height: 35px;
-    background-color: #F2EEFA!important;
-    border-color: #8470A9!important;
-    -webkit-box-shadow: 8px 8px 8px -1px #8470A9; 
-    box-shadow: 8px 8px 8px -1px #8470A9;
+    height: 40px;
+    background-color: #8470A930!important;
+    color: #26232b99!important;
+    border-color: #8470A999!important;
+    -webkit-box-shadow: 2px 2px 2px -1px #8470A9; 
+    box-shadow: 2px 2px 2px -1px #8470A9;
     transition-duration: 500ms!important;
     outline: none;
-}
-
-.card1
-{
-    background-color: #f5f5f5;
+    margin: 5px!important;   
 }

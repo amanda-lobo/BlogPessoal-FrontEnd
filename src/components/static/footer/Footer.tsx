@@ -1,5 +1,5 @@
 import React from 'react';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import EmailIcon from '@material-ui/icons/Email';
 import GithubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Typography, Box, Grid } from '@material-ui/core';
@@ -24,8 +24,8 @@ function Footer() {
             Siga-nos nas redes sociais </Typography> */}
           </Box>
           <Box display="flex" alignItems="center" justifyContent="center" className='icons'>
-            <a href="https://www.instagram.com/_amandalobo/" target="_blank">
-              <InstagramIcon />
+            <a href="mailto:amandalobo.ag@gmail.com?subject= Comunidade DevGirls" target="_blank">
+              <EmailIcon />
             </a>
             <a href="https://www.linkedin.com/in/amandag-lobo/" target="_blank">
               <LinkedInIcon />

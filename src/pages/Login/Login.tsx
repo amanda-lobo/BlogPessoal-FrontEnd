@@ -8,6 +8,7 @@ import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../components/store/tokens/actions';
+import { toast } from 'react-toastify';
 
 function Login() {
 
@@ -45,10 +46,28 @@ function Login() {
 
            try{
                 await login(`/usuarios/logar`, UserLogin, setToken)
-                alert('Usuário logado com sucesso!');
+                toast.success("Usuário logado com sucesso!", {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: 'light',
+                    progress: undefined,
+                })
                 
            }catch(error){
-                alert('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: 'light',
+                progress: undefined,
+            })
 
            }
         }
@@ -58,7 +77,7 @@ function Login() {
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='titulo'>Entrar</Typography>
                         <TextField value={UserLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' name='usuario' margin='normal' type='email' fullWidth />
                         <TextField value={UserLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' name='senha' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>

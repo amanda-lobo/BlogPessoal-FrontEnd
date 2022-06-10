@@ -3,6 +3,29 @@
 }
 
 .btnModal{
-    border-color: white !important;
-    background-color: white !important;
+    background-color: #8470A9!important;
+    color: #f5f5f5!important;
+    width: 160px;
+    height: 40px;
+    border:none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    transition-duration: 500ms!important;
+    outline: none;
+    margin: 5px!important;
+}
+
+.btnModal:hover
+{
+    width: 160px;
+    height: 40px;
+    background-color: #8470A930!important;
+    color: #26232b99!important;
+    border-color: #8470A999!important;
+    -webkit-box-shadow: 2px 2px 2px -1px #8470A9; 
+    box-shadow: 2px 2px 2px -1px #8470A9;
+    transition-duration: 500ms!important;
+    outline: none;
+    margin: 5px!important;  
 }

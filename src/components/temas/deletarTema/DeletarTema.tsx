@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, Typography } from '@materi
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Tema from '../../../models/Tema';
 import { buscaId, deleteId } from '../../../services/Service';
 import { TokenState } from '../../store/tokens/tokensReducer';
@@ -19,7 +20,16 @@ function DeletarTema() {
 
   useEffect(() => {
       if (token == "") {
-          alert("Você precisa estar logado")
+        toast.error("Você precisa estar logado!", {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'light',
+          progress: undefined,
+      })
           navigate("/login")
   
       }
@@ -46,7 +56,16 @@ function DeletarTema() {
               'Authorization': token
             }
           });
-          alert('Tema deletado com sucesso');
+          toast.success("Tema deletado com sucesso!", {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'light',
+            progress: undefined,
+        })
         }
       
         function nao() {
@@ -56,7 +75,7 @@ function DeletarTema() {
     <>
       <Box m={2}>
         <Card variant="outlined">
-          <CardContent>
+          <CardContent className='card'>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
                 Deseja deletar o Tema:
@@ -69,12 +88,12 @@ function DeletarTema() {
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-                <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
+                <Button onClick={sim} variant="contained" className='btn-postagem-tema' size='large' color="primary">
                   Sim
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button onClick={nao} variant="contained" size='large' color="secondary">
+                <Button onClick={nao} variant="contained" size='large' color="secondary" className='btn-postagem-tema'>
                   Não
                 </Button>
               </Box>

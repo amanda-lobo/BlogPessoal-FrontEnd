@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, Typography } from '@materi
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Service'
 import { TokenState } from '../../store/tokens/tokensReducer'
@@ -18,7 +19,16 @@ function ListaTema() {
 
     useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado!", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: 'light',
+                progress: undefined,
+            })
             navigate("/login")
         }
     }, [token])
@@ -55,14 +65,14 @@ function ListaTema() {
                         <Box display="flex" justifyContent="center" mb={1.5} >
                             <Link to={`/formularioTema/${tema.id}`} className="text-decoration">
                                 <Box mx={1}>
-                                    <Button className='btn-tema' variant="contained" size='small'>
+                                    <Button className='btn-postagem-tema' variant="contained" size='small'>
                                         atualizar
                                     </Button>
                                 </Box>
                             </Link>
                             <Link to={`/deletartema/${tema.id}`} className="text-decoration">
                                 <Box mx={1}>
-                                    <Button className='btn-tema' variant="contained" size='small'>
+                                    <Button className='btn-postagem-tema' variant="contained" size='small'>
                                         deletar
                                     </Button>
                                 </Box>

@@ -6,6 +6,7 @@ import { busca } from '../../../services/Service'
 import Postagem from '../../../models/Postagem'
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../store/tokens/tokensReducer'
+import { toast } from 'react-toastify'
 
 function ListaPostagem() {
 
@@ -19,7 +20,17 @@ function ListaPostagem() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado!", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: 'light',
+                progress: undefined,
+            });
+            
             navigate("/login")
 
         }
@@ -44,7 +55,7 @@ function ListaPostagem() {
                 posts.map(post => (
                     <Box m={2} className='background'>
                         <Card variant="outlined">
-                            <CardContent className='card1'>
+                            <CardContent className='card'>
                                 <Typography color="textSecondary" gutterBottom>
                                     Postagens
                                 </Typography>
@@ -58,18 +69,18 @@ function ListaPostagem() {
                                     {post.tema?.descricao}
                                 </Typography>
                             </CardContent>
-                            <CardActions className='card1'>
+                            <CardActions className='card'>
                                 <Box display="flex" justifyContent="center" mb={1.5}>
                                     <Link to={`/formularioPostagem/${post.id}`} className="text-decoration" >
                                         <Box mx={1}>
-                                            <Button variant="contained" className="btn-postagem" size='small'>
+                                            <Button variant="contained" className="btn-postagem-tema" size='small'>
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarPostagem/${post.id}`} className="text-decoration">
                                         <Box mx={1}>
-                                            <Button className='btn-postagem' variant="contained" size='small'>
+                                            <Button className='btn-postagem-tema' variant="contained" size='small'>
                                                 deletar
                                             </Button>
                                         </Box>

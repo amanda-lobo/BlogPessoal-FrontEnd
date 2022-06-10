@@ -6,6 +6,7 @@ import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroTema() {
 
@@ -24,7 +25,16 @@ function CadastroTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error("Você precisa estar logado!", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+        progress: undefined,
+    })
       navigate("/login")
 
     }
@@ -64,14 +74,32 @@ function CadastroTema() {
           'Authorization': token
         }
       })
-      alert('Tema atualizado com sucesso');
+      toast.success("Tema atualizado com sucesso!", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+        progress: undefined,
+    })
     } else {
       post(`/temas`, tema, setTema, {
         headers: {
           'Authorization': token
         }
       })
-      alert('Tema cadastrado com sucesso');
+      toast.success("Tema cadastrado com sucesso!", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+        progress: undefined,
+    })
     }
     back()
 
@@ -85,14 +113,14 @@ function CadastroTema() {
     <Container maxWidth="sm" className="topo">
       <form onSubmit={onSubmit}>
         <Typography variant="h3" color="textSecondary" component="h1"
-          align="center" >Formulário de cadastro tema</Typography>
+          align="center" className='titulo'>Cadastrar Tema</Typography>
 
         <TextField value={tema.descricao}
           onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)}
-          id="descricao" label="Descrição" variant="outlined"
-          name="descricao" margin="normal" fullWidth />
+          id="descricao" label="Descrição"
+          name="descricao" margin="normal" required fullWidth />
 
-        <Button type="submit" variant="contained" color="primary">
+        <Button className='button' type="submit" variant="contained" color="primary">
           Finalizar
         </Button>
       </form>

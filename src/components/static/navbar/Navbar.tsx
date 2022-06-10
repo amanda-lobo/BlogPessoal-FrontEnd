@@ -5,9 +5,7 @@ import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import { addToken } from '../../store/tokens/actions';
-
-
-
+import { toast } from 'react-toastify';
 
 function Navbar() {
 
@@ -21,18 +19,29 @@ function Navbar() {
 
   function goLogout() {
     dispatch(addToken(''));
-    alert("Usuário deslogado")
+    toast.info('Usuário Deslogado!', {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+      progress: undefined,
+    });
+
     navigate('/login')
   }
 
   var navbarComponent;
 
   if (token != "") {
+
     navbarComponent = <AppBar position="static">
       <Toolbar className='navbar' variant="dense">
 
         <Link to='/home' className='text-decoration'>
-          <Box className='cursor'>
+          <Box className='cursor' marginRight={48}>
             <Typography variant="h5" color="inherit">
               DevGirls
             </Typography>
@@ -40,33 +49,33 @@ function Navbar() {
         </Link>
 
         <Link to="/posts" className='text-decoration'>
-          <Box mx={1} className='cursor'>
+          <Box mx={1} className='cursor' marginRight={2}>
             <Typography variant="h6" color="inherit">
-              postagens
+              Postagens
             </Typography>
           </Box>
         </Link>
 
         <Link to='/temas' className='text-decoration'>
-          <Box mx={1} className='cursor'>
+          <Box mx={1} className='cursor'marginRight={2}>
             <Typography variant="h6" color="inherit">
-              temas
+              Temas
             </Typography>
           </Box>
         </Link>
 
         <Link to='formularioTema' className='text-decoration'>
-          <Box mx={1} className='cursor'>
+          <Box mx={1} className='cursor'marginRight={2}>
             <Typography variant="h6" color="inherit">
-              cadastrar tema
+              Cadastrar Tema
             </Typography>
           </Box>
         </Link>
 
 
-        <Box mx={1} className='cursor' onClick={goLogout}>
+        <Box mx={1} className='cursor' onClick={goLogout} marginLeft={50}>
           <Typography variant="h6" color="inherit">
-            logout
+            Sair
           </Typography>
         </Box>
 
