@@ -5,8 +5,8 @@ import './ListaPostagem.css'
 import { busca } from '../../../services/Service'
 import Postagem from '../../../models/Postagem'
 import { useSelector } from 'react-redux'
-import { TokenState } from '../../store/tokens/tokensReducer'
 import { toast } from 'react-toastify'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 
 function ListaPostagem() {
 

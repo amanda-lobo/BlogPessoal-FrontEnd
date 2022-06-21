@@ -5,7 +5,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Typography, Box, Grid } from '@material-ui/core';
 import './Footer.css';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function Footer() {
 

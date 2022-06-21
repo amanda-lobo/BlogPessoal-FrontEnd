@@ -5,7 +5,7 @@ import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../components/store/tokens/tokensReducer';
+import { TokenState } from '../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function Home() {

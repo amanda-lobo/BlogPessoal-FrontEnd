@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Service'
-import { TokenState } from '../../store/tokens/tokensReducer'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 import './ListaTema.css'
 
 function ListaTema() {

@@ -7,8 +7,8 @@ import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { addToken } from '../../components/store/tokens/actions';
 import { toast } from 'react-toastify';
+import { addToken } from '../../store/tokens/actions';
 
 function Login() {
 

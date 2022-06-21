@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function DeletarPostagem() {
     let navigate = useNavigate();

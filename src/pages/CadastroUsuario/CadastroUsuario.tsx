@@ -9,139 +9,79 @@ import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
-  const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+  const [confirmarSenha, setConfirmarSenha] = useState<String>("");
 
   const [user, setUser] = useState<User>({
     id: 0,
-    nome: '',
-    usuario: '',
-    senha: '',
-    foto: ''
-  })
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: ""
+  });
 
   const [userResult, setUserResult] = useState<User>({
     id: 0,
-    nome: '',
-    usuario: '',
-    senha: '',
-    foto: ''
-  })
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto:""
+  });
 
   useEffect(() => {
     if (userResult.id !== 0) {
-      navigate('/login')
+      navigate("/login");
     }
-  }, [userResult])
-
+  }, [userResult]);
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   }
 
   function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
-    setConfirmarSenha(e.target.value)
+    setConfirmarSenha(e.target.value);
   }
 
   async function cadastrar(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (confirmarSenha === user.senha) {
-
+    if (confirmarSenha === user.senha && user.senha.length >= 8) {
       try {
-        await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
         toast.success("Usuário cadastrado com sucesso!", {
           position: "top-right",
-          autoClose: 2500,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'light',
+          pauseOnHover: false,
+          draggable: false,
+          theme: "light",
           progress: undefined,
-      })
-
+        });
       } catch (error) {
-        console.log(`Error: ${error}`)
+        console.log(`Error: ${error}`);
 
-        toast.error("Usuário já existente", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'light',
-          progress: undefined,
-      })
-      }
-
-    } else {
-      toast.error("Confirmação de senha incorreta!", {
-        position: "top-right",
-        autoClose: 2500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'light',
-        progress: undefined,
-    })
-
-
-      setUser({ ...user, senha: "" })
-      setConfirmarSenha("")
-    }
-
-    if(user.senha.length >= 8)
-    {
-      try {
-        await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-        toast.success("Usuário cadastrado com sucesso!", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'light',
-          progress: undefined,
-      })
-  
-      } catch (error) {
-        console.log(`Error: ${error}`)
-  
-        toast.error("Usuário já existente!", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'light',
-          progress: undefined,
-      })
+       
       }
     } else {
-      toast.error("Insira no minímo 8 caracteres na senha!", {
+      toast.error("Dados do usuário inconsistentes. Erro ao logar", {
         position: "top-right",
-        autoClose: 2500,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'light',
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
         progress: undefined,
-    })
+      });
 
-      setUser({ ...user, senha: "" }) 
-      setConfirmarSenha("")           
+      setUser({ ...user, senha: "" });
+      setConfirmarSenha("");
     }
-   
   }
 
   return (
